@@ -10,17 +10,18 @@
         </form>
       </div>
     </section>
+
     <section class="section__create py-6">
       <div class="container">
         <h1 class="text-3x1">Publish a new room</h1>
         <form>
           <div class="mb-4">
-            <label class="input__label">Tittle</label>
-            <input class="input_field" type="text" placeholder="Thanos" />
+            <label class="input__label">Title</label>
+            <input class="input__field" type="text" placeholder="Thanos" />
           </div>
           <div class="mb-4">
             <label class="input__label">Description</label>
-            <textarea class="input_field" rows="10" placeholder="Thanos"></textarea>
+            <textarea class="input__field" rows="10" placeholder="Thanos"></textarea>
           </div>
           <div class="mb-4 w-full">
             <label class="input__label">Feature Image</label>
@@ -33,7 +34,9 @@
           <div class="mb-4 text-right">
             <button
               class="w-full bg-yellow-dark text-yellow-darker font-semibold py-3 px-6 rounded"
-            >Publish</button>
+            >
+              Publish
+            </button>
           </div>
         </form>
       </div>
