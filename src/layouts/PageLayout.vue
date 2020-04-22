@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style>
-  .form__field .input-icon {
-    top: 7px;
-    left: 9px;
-  }
+.form__field .input-icon {
+  top: 7px;
+  left: 9px;
+}
 </style>
