@@ -21,9 +21,9 @@
             <img class="house__image absolute w-full" width="250" :src="room.featured_image" />
           </div>
           <div class="house__content bg-white p-3 border rounded">
-            <div
-              class="house__type font-semibold text-xs uppercase text-teal-dark mb-1"
-            >{{ room.type }}</div>
+            <div class="house__type font-semibold text-xs uppercase text-teal-dark mb-1">
+              {{ room.type }}
+            </div>
             <div class="house__title font-bold mb-2">{{ room.title }}</div>
             <div class="house__price text-xs">
               <span class="font-bold">${{ room.price }}</span> per night
@@ -32,10 +32,11 @@
         </div>
       </div>
       <div class="text-center">
-        <a
+        <router-link
+          :to="{ name: 'SearchPage' }"
           class="py-3 px-12 bg-yellow-dark no-underline text-yellow-darker text-lg rounded"
-          href="#"
-        >Show all</a>
+          >Show all</router-link
+        >
       </div>
     </section>
   </default-layout>
@@ -48,6 +49,9 @@ import TinySlider from '@/components/TinySlider.vue';
 
 export default {
   name: 'HomePage',
+  beforeCreate() {
+    this.$store.dispatch('FETCH_ROOMS', 12);
+  },
   computed: {
     ...mapGetters(['rooms']),
   },

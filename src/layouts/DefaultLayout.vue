@@ -5,9 +5,9 @@
       <div class="container">
         <div class="section__form bg-white p-4 w-1/2 shadow-md">
           <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Platzi Rooms</h1>
-          <h2
-            class="mb-6 text-base text-grey-dark font-normal"
-          >Discover entire homes and private rooms perfect for any trip.</h2>
+          <h2 class="mb-6 text-base text-grey-dark font-normal">
+            Discover entire homes and private rooms perfect for any trip.
+          </h2>
           <form class="form__search">
             <div class="mb-4">
               <label class="input__label" for="where">Where</label>
@@ -23,7 +23,9 @@
             </div>
             <button
               class="px-2 py-4 bg-yellow-dark font-semibold w-full rounded text-yellow-darker"
-            >Search</button>
+            >
+              Search
+            </button>
           </form>
         </div>
       </div>
@@ -74,9 +76,9 @@
       </form>
     </modal>
     <!-- Modals REGISTER -->
-    <modal :show="modals.register" @close-modal="closeModal">
+    <modal :show="modals.register" @close-modal="closeModalRegister">
       <h2 class="text-gray-darkest font-semibold text-center mb-6">Join US</h2>
-      <form>
+      <form class="from" @submit.prevent="registerHandlerSubmit">
         <div class="mb-4">
           <label class="input__label">First Name</label>
           <div class="form__field relative">
@@ -146,14 +148,14 @@ export default {
     return {
       formLogin: {
         email: '',
-        passwrod: '',
+        password: '',
         rememberMe: false,
       },
       formRegister: {
         firstName: '',
         lastName: '',
         email: '',
-        passwrod: '',
+        password: '',
       },
     };
   },
@@ -173,9 +175,16 @@ export default {
         name: 'login',
         value: false,
       });
+    },
+    closeModalRegister() {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
         name: 'register',
         value: false,
+      });
+    },
+    registerHandlerSubmit() {
+      this.$store.dispatch('CREATE_USER', this.formRegister).then(() => {
+        this.closeModalRegister();
       });
     },
   },
@@ -216,5 +225,4 @@ export default {
   position: relative;
   bottom: 5px;
 }
-
 </style>

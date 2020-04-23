@@ -10,29 +10,40 @@
         </form>
       </div>
     </section>
-
     <section class="section__create py-6">
       <div class="container">
         <h1 class="text-3x1">Publish a new room</h1>
         <form>
           <div class="mb-4">
             <label class="input__label">Title</label>
-            <input class="input__field" type="text" placeholder="Thanos" />
+            <input
+              v-model="publication.title"
+              class="input__field"
+              type="text"
+              placeholder="Thanos"
+            />
           </div>
           <div class="mb-4">
             <label class="input__label">Description</label>
-            <textarea class="input__field" rows="10" placeholder="Thanos"></textarea>
+            <textarea
+              v-model="publication.description"
+              class="input__field"
+              rows="10"
+              placeholder="I Am Inevitable "
+            ></textarea>
           </div>
           <div class="mb-4 w-full">
             <label class="input__label">Feature Image</label>
             <input
-              class="input_field"
+              v-model="publication.featuredImage"
+              class="input__field"
               type="text"
-              placeholder="https://images.unsplash.com/photo-1432303492674-642e9d0944b"
+              placeholder="https://images.upload.com/photo-infinity-stones"
             />
           </div>
           <div class="mb-4 text-right">
             <button
+              @click.prevent="save"
               class="w-full bg-yellow-dark text-yellow-darker font-semibold py-3 px-6 rounded"
             >
               Publish
@@ -49,6 +60,29 @@ import PageLayout from '@/layouts/PageLayout.vue';
 
 export default {
   name: 'CreateHousePage',
+  data() {
+    return {
+      publication: {
+        title: '',
+        description: '',
+        featuredImage: '',
+      },
+    };
+  },
+  methods: {
+    save() {
+      const { title, description, featuredImage } = this.publication;
+      const room = {
+        title,
+        description,
+        featured_image: featuredImage,
+        publishedAt: Date.now(),
+      };
+      this.$store.dispatch('CREATE_ROOM', room).then(() => {
+        this.$router.push({ name: 'SearchPage' });
+      });
+    },
+  },
   components: {
     PageLayout,
   },

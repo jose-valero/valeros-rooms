@@ -27,14 +27,26 @@
           <div class="profile__fields">
             <form class="form">
               <div class="mb-4">
-                <label class="input__label" for="name">Name</label>
+                <label class="input__label" for="firstName">firstName</label>
                 <div class="form__field relative">
                   <input
-                    v-model="profile.name"
+                    v-model="profile.firstName"
                     class="input__field"
-                    id="name"
+                    id="firstName"
                     type="text"
-                    placeholder="Jose Valero"
+                    placeholder="First Name"
+                  />
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="input__label" for="name">lastName</label>
+                <div class="form__field relative">
+                  <input
+                    v-model="profile.lastName"
+                    class="input__field"
+                    id="lastName"
+                    type="text"
+                    placeholder="Last Name"
                   />
                 </div>
               </div>
@@ -89,9 +101,9 @@
               </div>
               <div class="flex items-center w-auto mb-4">
                 <button class="btn mr-3">Cancel</button>
-                <button
-                  class="bg-yellow-dark text-yellow-darker font-semibold py-2 px-4 rounded"
-                >Save</button>
+                <button class="bg-yellow-dark text-yellow-darker font-semibold py-2 px-4 rounded">
+                  Save
+                </button>
               </div>
             </form>
           </div>
@@ -110,7 +122,8 @@ export default {
   data() {
     return {
       profile: {
-        name: '',
+        firstName: '',
+        lastName: '',
         username: '',
         avatar: '',
         email: '',

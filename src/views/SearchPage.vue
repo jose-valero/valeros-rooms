@@ -5,7 +5,7 @@
         <form class="form">
           <div class="form__field relative">
             <i class="input-icon material-icons absolute text-grey-darker">search</i>
-            <input class="input__search" id="where" type="text" placeholder="Mexico City, Mexico" />
+            <input class="input__search" id="where" type="text" placeholder="PLC, Venezuela" />
           </div>
         </form>
       </div>
@@ -19,9 +19,9 @@
               <img class="house__image absolute w-full" width="250" :src="room.featured_image" />
             </div>
             <div class="house__content bg-white p-3 border rounded">
-              <div
-                class="house__type font-semibold text-xs uppercase text-teal-dark mb-1"
-              >{{ room.type }}</div>
+              <div class="house__type font-semibold text-xs uppercase text-teal-dark mb-1">
+                {{ room.type }}
+              </div>
               <div class="house__title font-bold mb-2">{{ room.title }}</div>
               <div class="house__price text-xs">
                 <span class="font-bold">${{ room.price }}</span> per night
@@ -29,17 +29,10 @@
             </div>
           </div>
         </div>
-        <div class="text-center">
-          <a
-            class="py-3 px-12 bg-yellow-dark no-underline text-yellow-darker text-lg rounded"
-            href="#"
-          >Show all</a>
-        </div>
       </div>
     </section>
   </page-layout>
 </template>
-
 
 <script>
 import { mapGetters } from 'vuex';
@@ -47,6 +40,9 @@ import PageLayout from '@/layouts/PageLayout.vue';
 
 export default {
   name: 'SearchPage',
+  beforeCreate() {
+    this.$store.dispatch('FETCH_ROOMS');
+  },
 
   computed: {
     ...mapGetters(['rooms']),

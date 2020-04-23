@@ -1,20 +1,26 @@
 <template>
-  <header class="bg-white py-3 shadow">
+  <header class="bg-white py-2 shadow">
     <div class="container">
       <div class="flex items-center justify-between flex-wrap">
         <div class="flex items-center flex-no-shrink mr-6">
-          <icon v-show="true"></icon>
-          <a
-            class="text-black hover:text-grey-darkest no-underline font-semibold text-lg"
-            href="#"
-          >Rooms</a>
+          <router-link
+            :to="{ name: 'HomePage' }"
+            class="text-blue-darkest hover:text-yellow-darker no-underline
+            font-semibold  flex items-end"
+          >
+            <icon v-show="true"></icon>
+            <span class="tag__rooms">Rooms</span>
+          </router-link>
         </div>
         <div class="flex items-center w-auto">
           <div class="items__controls">
             <div class="flex" v-if="user">
-              <button class="mr-2 flex items-center">
+              <router-link
+                :to="{ name: 'CreateHousePage' }"
+                class="mr-2 flex items-center no-underline text-grey-darkest"
+              >
                 <i class="material-icons">add</i>
-              </button>
+              </router-link>
               <button class="mr-4 flex items-center">
                 <i class="material-icons">notifications</i>
               </button>
@@ -34,11 +40,15 @@
               <button
                 class="btn__outline btn__outline--teal rounded mr-2"
                 @click.prevent="getLogin"
-              >Login</button>
+              >
+                Login
+              </button>
               <button
                 class="bg-yellow-dark text-yellow-darker font-semibold py-2 px-4 rounded"
                 @click.prevent="signUp"
-              >Register</button>
+              >
+                Register
+              </button>
             </div>
           </div>
         </div>
@@ -48,7 +58,6 @@
 </template>
 
 <script>
-
 import { mapGetters } from 'vuex';
 
 import icon from '@/components/icon.vue';
