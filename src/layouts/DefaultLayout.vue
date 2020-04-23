@@ -4,7 +4,7 @@
     <section class="section__hero py-6 bg-black bg-cover bg-center">
       <div class="container">
         <div class="section__form bg-white p-4 w-1/2 shadow-md">
-          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Platzi Rooms</h1>
+          <h1 class="mb-2 text-4xl font-light text-grey-darkest">Find homes on Valero's Rooms</h1>
           <h2 class="mb-6 text-base text-grey-dark font-normal">
             Discover entire homes and private rooms perfect for any trip.
           </h2>
@@ -17,7 +17,7 @@
                   class="input__search"
                   id="where"
                   type="text"
-                  placeholder="Mexico City, Mexico"
+                  placeholder="PLC, Venezuela"
                 />
               </div>
             </div>
@@ -80,10 +80,11 @@
       <h2 class="text-gray-darkest font-semibold text-center mb-6">Join US</h2>
       <form class="from" @submit.prevent="registerHandlerSubmit">
         <div class="mb-4">
-          <label class="input__label">First Name</label>
+          <label class="input__label" for="name">Name</label>
           <div class="form__field relative">
             <input
-              v-model="formRegister.firstName"
+              v-model="formRegister.name"
+              id="name"
               class="input__field"
               type="text"
               placeholder="Bruce"
@@ -91,21 +92,11 @@
           </div>
         </div>
         <div class="mb-4">
-          <label class="input__label">Last Name</label>
-          <div class="form__field relative">
-            <input
-              v-model="formRegister.lastName"
-              class="input__field"
-              type="text"
-              placeholder="Wayne"
-            />
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="input__label">Email</label>
+          <label class="input__label" for="email">Email</label>
           <div class="form__field relative">
             <input
               v-model="formRegister.email"
+              id="email"
               class="input__field"
               type="text"
               placeholder="bruce.wayne@imnotbatman.org"
@@ -113,13 +104,14 @@
           </div>
         </div>
         <div class="mb-4">
-          <label class="input__label">Password</label>
+          <label class="input__label" for="password">Password</label>
           <div class="form__field relative">
             <input
               v-model="formRegister.password"
               class="input__field"
+              id="oasswird"
               type="password"
-              placeholder="********"
+              placeholder="create a password"
             />
           </div>
         </div>
@@ -152,8 +144,7 @@ export default {
         rememberMe: false,
       },
       formRegister: {
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
         password: '',
       },

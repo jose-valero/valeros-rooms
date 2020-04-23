@@ -27,26 +27,14 @@
           <div class="profile__fields">
             <form class="form">
               <div class="mb-4">
-                <label class="input__label" for="firstName">firstName</label>
+                <label class="input__label" for="name">name</label>
                 <div class="form__field relative">
                   <input
-                    v-model="profile.firstName"
+                    v-model="profile.name"
                     class="input__field"
-                    id="firstName"
+                    id="name"
                     type="text"
-                    placeholder="First Name"
-                  />
-                </div>
-              </div>
-              <div class="mb-4">
-                <label class="input__label" for="name">lastName</label>
-                <div class="form__field relative">
-                  <input
-                    v-model="profile.lastName"
-                    class="input__field"
-                    id="lastName"
-                    type="text"
-                    placeholder="Last Name"
+                    placeholder="name"
                   />
                 </div>
               </div>
@@ -90,7 +78,7 @@
                 <label class="input__label" for="email">Bio</label>
                 <div class="form__field relative">
                   <textarea
-                    v-model="profile.Bio"
+                    v-model="profile.bio"
                     class="input__field"
                     rows="5"
                     id="email"
@@ -122,8 +110,7 @@ export default {
   data() {
     return {
       profile: {
-        firstName: '',
-        lastName: '',
+        name: '',
         username: '',
         avatar: '',
         email: '',

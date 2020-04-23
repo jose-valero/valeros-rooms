@@ -83,19 +83,19 @@ export default new Vuex.Store({
     }),
 
     CREATE_USER: ({ state, commit }, {
-      email, firstName, lastName, password,
+      email, name, password,
     }) => new Promise((resolve) => {
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((account) => {
           const id = account.user.uid;
           const registeredAt = Math.floor(Date.now() / 1000);
           const newUser = {
-            email, firstName, lastName, registeredAt,
+            email, name, registeredAt,
           };
           firebase.database().ref('users').child(id).set(newUser)
             .then(() => {
               commit('SET_ITEM', { resource: 'users', id, item: newUser });
-              resolve(state.user[id]);
+              resolve(state.users[id]);
             });
         });
     }),
