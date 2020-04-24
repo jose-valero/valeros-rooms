@@ -13,12 +13,7 @@
               <label class="input__label" for="where">Where</label>
               <div class="form__field relative">
                 <i class="input-icon material-icons absolute text-grey-darker">search</i>
-                <input
-                  class="input__search"
-                  id="where"
-                  type="text"
-                  placeholder="PLC, Venezuela"
-                />
+                <input class="input__search" id="where" type="text" placeholder="PLC, Venezuela" />
               </div>
             </div>
             <button
@@ -43,7 +38,7 @@
         <span class="text-blue">'</span>
         <span class="valero">s</span> Room
       </h2>
-      <form>
+      <form @submit.prevent="loginHandlerSubmit">
         <div class="mb-4">
           <label class="input__label">Email</label>
           <div class="form__field relative">
@@ -177,6 +172,16 @@ export default {
       this.$store.dispatch('CREATE_USER', this.formRegister).then(() => {
         this.closeModalRegister();
       });
+    },
+    loginHandlerSubmit() {
+      this.$store
+        .dispatch('SIGN_IN', {
+          email: this.formLogin.email,
+          password: this.formLogin.password,
+        })
+        .then(() => {
+          this.closeModal();
+        });
     },
   },
 };

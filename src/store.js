@@ -29,12 +29,16 @@ export default new Vuex.Store({
     APPEND_ROOM_TO_USER(state, { roomId, userId }) {
       Vue.set(state.users[userId].rooms, roomId, roomId);
     },
+
     SET_ITEM(state, { item, id, resource }) {
       const newItem = item;
       newItem['.key'] = id;
       Vue.set(state[resource], id, newItem);
     },
 
+    SET_AUTHID(state, id) {
+      state.authId = id;
+    },
   },
 
   actions: {
@@ -99,12 +103,32 @@ export default new Vuex.Store({
             });
         });
     }),
+    FETCH_AUTH_USER: ({ dispatch, commit }) => {
+      const userId = firebase.auth().currentUser.uid;
+      return dispatch('FETCH_USER', { id: userId })
+        .then(() => {
+          commit('SET_AUTHID', userId);
+        });
+    },
+    SIGN_IN(context, { email, password }) {
+      return firebase.auth().signInWithEmailAndPassword(email, password);
+    },
+    LOG_OUT({ commit }) {
+      firebase.auth().signOut()
+        .then(() => {
+          commit('SET_AUTHID', null);
+        });
+    },
   },
 
   getters: {
     modals: state => state.modals,
-    authUser: state => state.users[state.authId],
+    authUser(state) {
+      return (state.authId) ? state.users[state.authId] : null;
+    },
+
     rooms: state => state.rooms,
+
     userRoomsCount: state => id => countObjectProperties(state.users[id].rooms),
   },
 });
