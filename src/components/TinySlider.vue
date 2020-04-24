@@ -29,6 +29,9 @@ export default {
       const settings = {
         container: this.$el,
         mode: 'gallery',
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplayTimeout: 2000,
       };
       this.$slider = tns(settings);
     },

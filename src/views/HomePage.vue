@@ -1,18 +1,67 @@
 <template>
   <default-layout>
     <section class="container py-6">
-      <h1 class="text-3xl font-light text-grey-darkest mb-3">Recomendados</h1>
-      <div class="section">
+      <h1 class="text-3xl font-light text-grey-darkest mb-3">Recomendations</h1>
+      <div class="section grid-container mb-8">
         <tiny-slider>
-          <div class="slider-item">1</div>
-          <div class="slider-item">2</div>
-          <div class="slider-item">3</div>
-          <div class="slider-item">4</div>
-          <div class="slider-item">5</div>
-          <div class="slider-item">6</div>
+          <div class="slider-item" >
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #1</h2>
+            <p class="card_description">CABA, Argentina</p>
+          </div>
+          <div class="slider-item">
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1522107177-01884fcfa2bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #2</h2>
+            <p class="card_description">PLC, Venezuela</p>
+          </div>
+          <div class="slider-item">
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1566064282945-7d97dc617a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #3</h2>
+            <p class="card_description">Caracas, Venezuela</p>
+          </div>
+          <div class="slider-item">
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1532794801295-575d878162a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #4</h2>
+            <p class="card_description">Bogota, Colombia</p>
+          </div>
+          <div class="slider-item">
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1517541866997-ea18e32ea9e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #5</h2>
+            <p class="card_description">Mar de Plata, Argentina</p>
+          </div>
+          <div class="slider-item">
+            <img
+              class="img_size"
+              src="https://images.unsplash.com/photo-1582571450693-1147f1d457d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              alt=" Foto de casa en Argentina"
+            />
+            <h2>Recomendation #6</h2>
+            <p class="card_description">Barranquilla, Colombia</p>
+          </div>
         </tiny-slider>
       </div>
     </section>
+
     <section class="container py-6">
       <h1 class="text-3xl font-light text-grey-darkest mb-3">Explore</h1>
       <div class="section__explore grid-container mb-8">
@@ -96,5 +145,9 @@ export default {
   .house__card > .house__thumbnail {
     height: 120px;
   }
+}
+.img_size {
+  width: 230px;
+  height:230px;
 }
 </style>
